@@ -12,40 +12,54 @@ function updateAttemptsDisplay() {
   attemptsDiv.textContent = `Осталось попыток: ${attemptsLeft}`;
 }
 
+function showMessage(text, color, animate = false) {
+  messageDiv.textContent = text;
+  messageDiv.style.color = color;
+  messageDiv.classList.remove('show');
+  setTimeout(() => {
+    messageDiv.classList.add('show');
+    if (animate) {
+      messageDiv.classList.add('success-animation');
+    }
+  }, 10);
+}
+
 function checkGuess() {
   if (gameOver) return;
 
   const userGuess = parseInt(userGuessInput.value);
 
   if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-    messageDiv.textContent = 'Пожалуйста, введи число от 1 до 100.';
-    messageDiv.style.color = 'orange';
+    showMessage('⚠️ Введи число от 1 до 100!', '#ff9800');
     return;
   }
 
   attemptsLeft--;
 
   if (userGuess === secretNumber) {
-    messageDiv.textContent = '🎉 Поздравляем! Ты угадал число!';
-    messageDiv.style.color = '#4caf50';
+    showMessage('🎉 УРА! Ты угадал число!', '#4caf50', true);
     gameOver = true;
     restartButton.style.display = 'inline-block';
+    document.body.style.background = 'linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%)';
   } else if (attemptsLeft === 0) {
-    messageDiv.textContent = `💀 Ты проиграл! Загаданное число было: ${secretNumber}`;
-    messageDiv.style.color = '#f44336';
+    showMessage(`💀 К сожалению, ты проиграл... Загаданное число было: ${secretNumber}`, '#f44336');
     gameOver = true;
     restartButton.style.display = 'inline-block';
+    document.body.style.background = 'linear-gradient(135deg, #f44336 0%, #ff9800 100%)';
   } else if (userGuess < secretNumber) {
-    messageDiv.textContent = 'Слишком мало! 🔼';
-    messageDiv.style.color = '#ffeb3b';
+    showMessage('🔺 Слишком мало! Попробуй больше.', '#2196F3');
   } else {
-    messageDiv.textContent = 'Слишком много! 🔽';
-    messageDiv.style.color = '#ffeb3b';
+    showMessage('🔻 Слишком много! Попробуй меньше.', '#2196F3');
   }
 
   updateAttemptsDisplay();
   userGuessInput.value = '';
   userGuessInput.focus();
+
+  // Сбрасываем анимацию после 1 секунды
+  setTimeout(() => {
+    messageDiv.classList.remove('success-animation');
+  }, 1000);
 }
 
 submitButton.addEventListener('click', checkGuess);
@@ -61,10 +75,12 @@ restartButton.addEventListener('click', () => {
   attemptsLeft = 7;
   gameOver = false;
   messageDiv.textContent = '';
+  messageDiv.classList.remove('show', 'success-animation');
   restartButton.style.display = 'none';
   updateAttemptsDisplay();
   userGuessInput.value = '';
   userGuessInput.focus();
+  document.body.style.background = 'linear-gradient(135deg, #6a11cb 0%, #2575fc 50%, #00c6ff 100%)';
 });
 
 // Инициализация
