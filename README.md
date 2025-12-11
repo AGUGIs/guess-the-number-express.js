@@ -17,7 +17,13 @@
    Если потратишь все попытки — узнаешь правильный ответ.
 
 Нажми **«🔄 Начать заново»**, чтобы сыграть снова!
-<img width="1897" height="1009" alt="image" src="https://github.com/user-attachments/assets/eeb3c239-3125-4a03-babd-916ba2631cbf" />
+
+<img width="1897" height="1010" alt="image" src="https://github.com/user-attachments/assets/c3b07806-954a-4cc8-b64e-ab9a950e3265" />
 
 <img width="1917" height="1000" alt="image" src="https://github.com/user-attachments/assets/a0afc857-a35e-42d2-8ad1-c46818d4f887" />
 
+## Установка
+
+```bash
+npm install
+npm start
