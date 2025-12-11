@@ -13,8 +13,8 @@
 
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #0c0c16;
-    color: #e0e0ff;
+    background: #0a0512;
+    color: #ffffff;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -24,15 +24,15 @@
   }
 
   .game-container {
-    background: rgba(18, 18, 32, 0.85);
+    background: rgba(30, 15, 45, 0.8);
     backdrop-filter: blur(12px);
     padding: 2.5rem;
     border-radius: 24px;
-    box-shadow: 0 0 30px rgba(106, 17, 203, 0.4);
+    box-shadow: 0 0 30px rgba(140, 30, 200, 0.4);
     text-align: center;
     max-width: 520px;
     width: 100%;
-    border: 1px solid rgba(106, 17, 203, 0.3);
+    border: 1px solid rgba(140, 30, 200, 0.3);
     position: relative;
     overflow: hidden;
   }
@@ -44,7 +44,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #6a11cb, #00c6ff, #6a11cb);
+    background: linear-gradient(45deg, #9d00ff, #7b00e0, #9d00ff);
     z-index: -1;
     border-radius: 26px;
     animation: borderGlow 3s infinite linear;
@@ -63,18 +63,18 @@
   h1 {
     font-size: 2.4rem;
     margin-bottom: 0.6rem;
-    background: linear-gradient(90deg, #6a11cb, #00c6ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: white;
     font-weight: 800;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 8px rgba(140, 30, 200, 0.6);
   }
 
   .subtitle {
-    color: #a0a0d0;
+    color: #e0e0ff;
     font-size: 1.15rem;
     margin-bottom: 1.8rem;
     line-height: 1.5;
+    opacity: 0.85;
   }
 
   .input-group {
@@ -89,10 +89,10 @@
     padding: 0.9rem 1.2rem;
     font-size: 1.2rem;
     width: 140px;
-    background: rgba(30, 30, 50, 0.7);
-    border: 2px solid #4a4a7a;
+    background: rgba(40, 20, 60, 0.7);
+    border: 2px solid #603080;
     border-radius: 16px;
-    color: #ffffff;
+    color: white;
     text-align: center;
     outline: none;
     transition: all 0.3s ease;
@@ -100,12 +100,13 @@
   }
 
   input::placeholder {
-    color: #7070a0;
+    color: #c0c0f0;
+    opacity: 0.7;
   }
 
   input:focus {
-    border-color: #00c6ff;
-    box-shadow: 0 0 12px rgba(0, 198, 255, 0.5);
+    border-color: #9d00ff;
+    box-shadow: 0 0 12px rgba(157, 0, 255, 0.5);
   }
 
   button {
@@ -124,7 +125,7 @@
 
   button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.5);
+    box-shadow: 0 6px 20px rgba(140, 30, 200, 0.5);
   }
 
   button:active {
@@ -132,14 +133,14 @@
   }
 
   #submitGuess {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.4);
+    background: linear-gradient(135deg, #9d00ff, #7b00e0);
+    box-shadow: 0 4px 15px rgba(140, 30, 200, 0.4);
   }
 
   .restart-btn {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    background: linear-gradient(135deg, #ff33cc, #ff00aa);
     margin-top: 1.2rem;
-    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 0, 170, 0.4);
     display: none;
   }
 
@@ -151,6 +152,7 @@
     transform: translateY(10px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-weight: 600;
+    color: white;
   }
 
   .message.show {
@@ -164,18 +166,19 @@
 
   @keyframes glitch {
     0% { transform: translate(0); }
-    20% { transform: translate(-3px, 3px); color: #ff00c8; }
-    40% { transform: translate(3px, -3px); color: #00ffe5; }
-    60% { transform: translate(-3px, 0); color: #6a11cb; }
-    80% { transform: translate(3px, 3px); color: #00c6ff; }
+    20% { transform: translate(-3px, 3px); color: #ff00cc; }
+    40% { transform: translate(3px, -3px); color: #9d00ff; }
+    60% { transform: translate(-3px, 0); color: #ff33cc; }
+    80% { transform: translate(3px, 3px); color: #7b00e0; }
     100% { transform: translate(0); }
   }
 
   .attempts {
     font-size: 1.15rem;
-    color: #b0b0e0;
+    color: #e0e0ff;
     margin-bottom: 1.2rem;
     font-weight: 500;
+    opacity: 0.9;
   }
 
   @media (max-width: 600px) {
